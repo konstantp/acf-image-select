@@ -1,5 +1,5 @@
 === Advanced Custom Fields: Image Select Field ===
-Contributors: Navid Kashani, cyberwani
+Contributors: Navid Kashani, cyberwani, konstantp
 Requires at least: 3.6
 Tested up to: 3.6
 Stable tag: 1.0.1
