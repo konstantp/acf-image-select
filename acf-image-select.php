@@ -3,7 +3,7 @@
  * Plugin Name: Advanced Custom Fields: Image Select
  * Plugin URI: https://github.com/reyhoun/acf-image-select
  * Description: Image Select addon for Advanced Custom Fields.
- * Version: 0.1.0
+ * Version: 2.0.0
  * Author: Reyhoun
  * Author URI: http://reyhoun.com/
  * License: GPLv2 or later
