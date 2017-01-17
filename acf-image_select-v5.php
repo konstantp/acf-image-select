@@ -47,8 +47,7 @@ class acf_field_image_select extends acf_field {
 			'choices'			=>	array(),
 			'default_value'		=>	'',
 			'multiple'          => 0,
-			'image_path'		=> '/images/',
-			'image_extension'   => 'png',
+			'image_url'			=> ''
 		);
 
 
@@ -108,16 +107,16 @@ class acf_field_image_select extends acf_field {
 
 		acf_render_field_setting( $field, array(
 			'label'			=> __('Choices','acf-image_select'),
-			'instructions'	=> __('Enter your choices one per line <br /> Red <br /> Blue <br /> red : Red <br /> blue : Blue <br /><span style="color:#BC0B0B">Please note:</span> The first value of each choices will used as name of image.<br />Like for "<strong>Blue</strong>" or "<strong>blue : Blue</strong>", the image name will be "<strong>blue.png</strong>"','acf-image_select'),
+			'instructions'	=> __('Enter your choices one per line <br /> http://domain.com/wp-content/uploads/2017/01/test1.jpg : Test 1 <br /> http://domain.com/wp-content/uploads/2017/01/test2.jpg : Test 2 <br />','acf-image_select'),
 			'type'			=> 'textarea',
 			'name'			=> 'choices',
 		));
 
-		acf_render_field_setting( $field, array(
-			'label'			=> __('Default Value','acf-image_select'),
-			'type'			=> 'text',
-			'name'			=> 'default_value',
-		));
+		// acf_render_field_setting( $field, array(
+		// 	'label'			=> __('Default Value','acf-image_select'),
+		// 	'type'			=> 'text',
+		// 	'name'			=> 'default_value',
+		// ));
 
 		acf_render_field_setting( $field, array(
 			'label'			=> __('Allow Multiple Choices?','acf-image_select'),
@@ -128,19 +127,6 @@ class acf_field_image_select extends acf_field {
 			),
 			'layout'	=>	'horizontal',
 			'name'			=> 'multiple',
-		));
-
-		acf_render_field_setting( $field, array(
-			'label'			=> __('Image Path','acf-image_select'),
-			'instructions'	=> __('Enter folder URL for images <b>based on current theme</b>.','acf-image_select'),
-			'type'			=> 'text',
-			'name'			=> 'image_path',
-		));
-
-		acf_render_field_setting( $field, array(
-			'label'			=> __('Image Extension','acf-image_select'),
-			'type'			=> 'text',
-			'name'			=> 'image_extension',
 		));
 	}
 
@@ -162,7 +148,7 @@ class acf_field_image_select extends acf_field {
 	*/
 
 	function render_field( $field ) {
-
+		
 		// vars
 		$i = 0;
 		$e = '<ul class="acf-image-select-list ' . esc_attr($field['class']) . '" data-image-select-multiple="'.$field['multiple'].'">';
@@ -202,7 +188,7 @@ class acf_field_image_select extends acf_field {
 
 					$e .= '<label for="' . $field_id . '" class="'.$class.'">';
 						$e .= '<input id="' . $field_id . '" class="item-input" type="radio" name="' . esc_attr($field['name']) . '" value="' . esc_attr($key) . '" ' .  $atts  . ' />';
-						$e .= '<img class="item-image ' . $field_id . '-image" alt="'.$value.'" src="' . get_stylesheet_directory_uri() . $field['image_path'].esc_attr($key).'.'.$field['image_extension'].'">';
+						$e .= '<img class="item-image ' . $field_id . '-image" alt="'.$value.'" src="' . $field['image_url'] . esc_attr($key).'">';
 						$e .= '<br/>';
 						$e .= '<span class="item-title ' . $field_id . '-title">'.$value.'</span>';
 					$e .= '</label>';
