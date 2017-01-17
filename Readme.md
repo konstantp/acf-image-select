@@ -5,7 +5,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Image Select Slider addon for Advanced Custom Fields.
-Here is a ![preview](https://www.dropbox.com/s/02njo4uf07l3x96/Screenshot%202017-01-17%2016.53.47.png?dl=0).
+Here is a preview: ![Preview](https://raw.githubusercontent.com/konstantp/acf-image-select/master/preview.png).
 Based on [Slick Slider](https://github.com/kenwheeler/slick). 
 
 
