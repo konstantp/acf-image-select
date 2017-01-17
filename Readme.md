@@ -1,13 +1,13 @@
 === Advanced Custom Fields: Image Select Field ===
 Contributors: Navid Kashani, cyberwani, konstantp
-Requires at least: 3.6
-Tested up to: 3.6
-Stable tag: 1.0.1
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
+Image Select Slider addon for Advanced Custom Fields.
+Here is a ![preview](https://www.dropbox.com/s/02njo4uf07l3x96/Screenshot%202017-01-17%2016.53.47.png?dl=0).
+Based on [Slick Slider](https://github.com/kenwheeler/slick). 
 
-Image Select addon for Advanced Custom Fields.
 
 == Description ==
 
@@ -17,14 +17,14 @@ Image Select addon for Advanced Custom Fields.
 
 This add-on will work with:
 
-* version 4 and 5
+* version 5
 
 == Installation ==
 
 This add-on can be treated as both a WP plugin and a theme include.
 
 = Plugin =
-1. Copy the 'acf-{{field_name}}' folder into your plugins folder
+1. Copy the 'acf-image-select' folder into your plugins folder
 2. Activate the plugin via the Plugins admin page
 
 = Include =

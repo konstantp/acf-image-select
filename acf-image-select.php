@@ -31,15 +31,6 @@ function include_field_types_image_select( $version ) {
 add_action('acf/include_field_types', 'include_field_types_image_select');	
 
 
-
-
-// 3. Include field type for ACF4
-function register_fields_FIELD_NAME() {
-	
-	include_once('acf-image_select-v4.php');
-	
-}
-
 add_action('acf/register_fields', 'register_fields_image_select');	
 
 ?>

@@ -151,13 +151,14 @@ class acf_field_image_select extends acf_field {
 		
 		// vars
 		$i = 0;
-		$e = '<ul class="acf-image-select-list ' . esc_attr($field['class']) . '" data-image-select-multiple="'.$field['multiple'].'">';
+		$output = '<div class="acf-image-select-list slick-slider ' . esc_attr($field['class']) . '">';
 
 		// add choices
 		if( is_array($field['choices']) )
 		{
 			foreach( $field['choices'] as $key => $value )
 			{
+
 				// vars
 				$i++;
 				$atts  = '';
@@ -184,21 +185,23 @@ class acf_field_image_select extends acf_field {
 
 				// HTML
 				$field_id = esc_attr($field['id']) . '-' . esc_attr($key);
-				$e .= '<li class="acf-image-select">';
-
-					$e .= '<label for="' . $field_id . '" class="'.$class.'">';
-						$e .= '<input id="' . $field_id . '" class="item-input" type="radio" name="' . esc_attr($field['name']) . '" value="' . esc_attr($key) . '" ' .  $atts  . ' />';
-						$e .= '<img class="item-image ' . $field_id . '-image" alt="'.$value.'" src="' . $field['image_url'] . esc_attr($key).'">';
-						$e .= '<br/>';
-						$e .= '<span class="item-title ' . $field_id . '-title">'.$value.'</span>';
-					$e .= '</label>';
-				$e .= '</li>';
+				$output .= '<div class="acf-image-select '.$class.' slick-slide">';
+					$output .= '<img class="item-image ' . $field_id . '-image" alt="'.$value.'" src="' . $field['image_url'] . esc_attr($key).'">';
+					$output .= '<label for="' . $field_id . '">';
+						$output .= '<input id="' . $field_id . '" class="item-input" type="radio" name="' . esc_attr($field['name']) . '" value="' . esc_attr($key) . '" ' .  $atts  . ' />';
+						$output .= '<span class="item-title ' . $field_id . '-title">'.$value.'</span>';
+					$output .= '</label>';
+				$output .= '</div>';
 			}
 		}
+		$output .= '</div>';
 
-		$e .= '</ul>';
+		$output .= '<script>var acf_image_select_list = { initialSlide: 2 } </script>';
 
-		echo $e;
+		$output .= '<button type="button" class="acf-image-select-btn slick-prev">Previous</button>';
+		$output .= '<button type="button" class="acf-image-select-btn slick-next">Next</button>';
+
+		echo $output;
 
 	}
 
@@ -222,9 +225,8 @@ class acf_field_image_select extends acf_field {
 
 		$dir = plugin_dir_url( __FILE__ );
 
-
 		// register & include JS
-		wp_register_script( 'acf-input-image_select', "{$dir}js/image-select.js" );
+		wp_register_script( 'acf-input-image_select', "{$dir}js/image-select.js", array(), false, true );
 		wp_enqueue_script('acf-input-image_select');
 
 
